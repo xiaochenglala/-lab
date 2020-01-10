@@ -1,0 +1,8 @@
+<Summary isCard="{{false}}"
+         name="{{summary.name}}"
+         avatarUrl="{{summary.avatarUrl}}"
+         createTime="{{summary.createTime}}"
+         content="{{summary.content}}"
+         imgList="{{summary.imgList}}"
+         scan="{{summary.scan}}"
+         answer="{{summary.answer}}"></Summary>

@@ -1,0 +1,31 @@
+<view class='profile'>
+  <view class="profile-img">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <open-data type="userNickName" class="profile-name"></open-data>
+</view>
+
+<button wx:if="{{!isLogin}}" open-type="getUserInfo" type="primary" bindgetuserinfo="onGetUserInfo">授权登录</button>
+
+<!-- 老师版 -->
+<view wx:elif="{{isTeacher}}" class="cu-list menu sm-border card-menu margin-top">
+  <view class="cu-item arrow" wx:for="{{admin}}" data-link="{{item.link}}" bindtap="goto">
+    <view class="content">
+      <text class="cuIcon-{{item.icon}} text-grey"></text>
+      <text class="text-grey">{{item.title}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 游客版 -->
+<view wx:else class="cu-list menu sm-border card-menu margin-top">
+  <view class="cu-item arrow" wx:for="{{visitor}}" data-link="{{item.link}}" bindtap="goto">
+    <view class="content">
+      <text class="cuIcon-{{item.icon}} text-grey"></text>
+      <text class="text-grey">{{item.title}}</text>
+    </view>
+  </view>
+</view>
+
+
+<view class="appreciate">特别鸣谢:@ColorUi 提供的开源UI框架</view>

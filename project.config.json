@@ -1,0 +1,92 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"appid": "wx7c11300be71c40f8",
+	"projectname": "EE-lab",
+	"libVersion": "2.10.0",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"compileType": "miniprogram",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "pages/summary/summary",
+					"pathName": "pages/summary/summary",
+					"query": "id= 064a654f-863d-4e27-89ef-8df1329be717",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "pages/writeSummary/writeSummary",
+					"pathName": "pages/writeSummary/writeSummary",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/summaryDeatil/summaryDetail",
+					"pathName": "pages/summaryDetail/summaryDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/addProject/addProject",
+					"pathName": "pages/addProject/addProject",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

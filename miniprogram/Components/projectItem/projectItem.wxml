@@ -1,0 +1,12 @@
+  <view class="cu-card article isCard">
+    <view class="card">
+      <view class="info">
+        <view class="title">{{name}}</view>
+        <view class="about">
+          <view class="teacher">指导老师：<text>{{teacher}}</text></view>
+          <view class="scanNum">{{scan}}人浏览</view>
+        </view>
+      </view>
+      <view class="icon"><text class="cuIcon-right text-gray"></text></view>
+    </view>
+  </view>

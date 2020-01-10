@@ -1,0 +1,66 @@
+<view class="padding-xl radius shadow-warp bg-white margin-top">
+  <view class="title cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class=" cuIcon-title text-blue"></text> 项目详情
+    </view>
+  </view>
+
+  <view class="cu-form-group ">
+    <text>项目名称: </text>
+    <text class="text-cut padding " style="width:400rpx">{{Detail.name}}</text>
+  </view>
+
+  <view class="cu-form-group bg-gradual-blue">
+    <text>指导老师: </text>
+    <text>{{Detail.teacher}}</text>
+  </view>
+
+  <view class="cu-form-group">
+    <text>联系方式: </text>
+    <text>{{Detail.phone}}</text>
+  </view>
+
+  <view class="cu-form-group bg-gradual-blue">
+    <text>面向专业: </text>
+    <text>{{Detail.profession}}</text>
+  </view>
+
+  <view class="cu-form-group">
+    <text>需求人数: </text>
+    <text>{{Detail.people_num}}</text>
+  </view>
+
+  <view class="cu-form-group bg-gradual-blue">
+    <text>项目期限: </text>
+    <text>{{Detail.deadline}}</text>
+  </view>
+
+  <view class="cu-form-group">
+    <text>实验室: </text>
+    <text>{{Detail.lab}}</text>
+  </view>
+
+</view>
+<view class="padding-xl radius shadow-warp bg-white margin-top">
+
+  <view class="title cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-blue"></text> 内容介绍
+    </view>
+  </view>
+
+  <view class="content">{{Detail.content}}</view>
+</view>
+<!-- <view class="padding-xl radius shadow-warp bg-white margin-top">
+  <view class="title cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-blue"></text> 已报名成员：
+    </view>
+  </view> -->
+  <!-- <scroll-view scroll-y class="cu-list menu">
+    <view class="cu-item" style="text-indent:100rpx;">电子信息工程： 朱浩文</view>
+    <view class="cu-item" style="text-indent:100rpx;">电子信息工程： 朱浩文</view>
+  </scroll-view> -->
+<!-- </view> -->
+<button wx:if="{{type==0}}" bindtap="gotoSignUp" class="flex cu-btn lg bg-blue" id="sign-up">我要报名</button>
+<button wx:else bindtap="gotoSummary" class="flex cu-btn lg bg-blue" id="sign-up">查看周结</button>

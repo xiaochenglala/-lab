@@ -1,0 +1,9 @@
+.fix{
+  position: fixed;
+  right: 50rpx;
+  bottom: 80rpx;
+  box-shadow: 2rpx 2rpx 10rpx #004198;
+}
+.fix:active{
+  box-shadow: 5rpx 5rpx 5rpx #004198;
+}

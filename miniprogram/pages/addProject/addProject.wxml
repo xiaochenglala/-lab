@@ -1,0 +1,32 @@
+<form bindsubmit="formSubmit">
+  <view class="cu-form-group margin-top">
+    <view class="title">项目名称</view>
+    <input name="name" placeholder="请输入项目名称"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">项目人数</view>
+    <input name="people_num" placeholder="请输入人数" value="2-3"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">实验室</view>
+    <input name="lab" placeholder="请输入实验室" value="南区基础实验楼N106"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">面向专业</view>
+    <input name="profession" placeholder="请输入面向的专业" value="电子、通信、计算机"></input>
+  </view>
+	<view class="cu-form-group">
+		<view class="title">项目期限</view>
+		<picker name="deadline" mode="date" value="{{date}}" start="2020-01-01" end="2100-09-01" bindchange="DateChange">
+			<view>
+				{{date}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group align-start" style="height:500rpx;">
+    <view class="title">项目详情</view>
+    <textarea name="content" style="height:80%;font-size:30rpx;" maxlength="-1" placeholder="请输入项目详细信息"></textarea>
+  </view>
+
+  <button form-type="submit" class="cu-btn flex bg-blue shadow margin-top">创建项目</button>
+</form>

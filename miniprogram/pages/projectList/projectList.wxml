@@ -1,0 +1,11 @@
+<scroll-view scroll-x class="nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-blue cur':'text-gray'}}" wx:for="{{type}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+      {{item}}
+    </view>
+  </view>
+  <Item wx:for="{{projectList}}" 
+        name="{{item.name}}" 
+        teacher="{{item.teacher}}"
+        scan="{{item.scan}}" bindtap="gotoDetail" data-id="{{item._id}}"></Item>
+</scroll-view>

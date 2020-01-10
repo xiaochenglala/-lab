@@ -1,0 +1,20 @@
+.intro {
+  margin: 30px;
+  text-align: center;
+}
+
+.title {
+ font-size:middle;
+ color:#004198;
+ font-family:youyuan;
+ font-weight:bold;
+}
+
+.content{
+  white-space: pre-wrap;
+}
+
+#sign-up {
+  margin: 50rpx auto;
+  box-shadow: 2rpx 2rpx 10rpx #004198;
+}

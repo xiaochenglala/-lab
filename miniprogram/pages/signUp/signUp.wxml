@@ -1,0 +1,24 @@
+<form bindsubmit="formSubmit">
+  <view class="cu-form-group margin-top">
+    <view class="title">姓名</view>
+    <input name="name" placeholder="请输入你的姓名"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">班级</view>
+    <input name="class" placeholder="请输入你的班级"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">学号</view>
+    <input name="number" placeholder="请输入你的学号"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">微信号</view>
+    <input name="wechat" placeholder="请输入你的微信号"></input>
+  </view>
+  <view class="cu-form-group align-start" style="height:500rpx;">
+    <view class="title">自我介绍</view>
+    <textarea name="introduction" style="height:80%;font-size:30rpx;" maxlength="-1" placeholder="简单的介绍一下自己吧😀😀😀"></textarea>
+  </view>
+
+  <button form-type="submit" class="cu-btn flex bg-blue shadow margin-top">提交</button>
+</form>

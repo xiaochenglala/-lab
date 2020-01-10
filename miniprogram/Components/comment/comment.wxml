@@ -1,0 +1,25 @@
+<view class="cu-card dynamic {{isCard?'isCard':'no-card'}}">
+  <view class="cu-item shadow">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{avatarUrl}});"></view>
+        <view class="content flex-sub">
+          <view>{{name}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{createTime}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="content" style="padding:0 20rpx;" >
+      {{content}}
+    </view>
+    <image wx:for="{{imgList}}" src="{{item}}" mode="aspectFit" style="width:200rpx;height:200rpx;margin:10rpx;" catchtap="previewImage" data-src="{{item}}"></image>
+    <view class="text-gray text-sm text-right padding">
+      <text class="cuIcon-attentionfill margin-lr-xs"></text> {{scan}}
+      <text class="cuIcon-messagefill margin-lr-xs"></text> {{answer}}
+    </view>
+    <view class="cu-list menu-avatar comment solids-top">
+    </view>
+  </view>
+</view>

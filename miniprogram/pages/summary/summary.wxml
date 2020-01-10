@@ -1,0 +1,10 @@
+<Summary wx:for="{{summaryList}}"
+         name="{{item.name}}"
+         avatarUrl="{{item.avatarUrl}}"
+         createTime="{{item.createTime}}"
+         content="{{item.content}}"
+         imgList="{{item.imgList}}"
+         scan="{{item.scan}}"
+         answer="{{item.answer}}"
+         bindtap="gotoResponse" data-id="{{item._id}}"></Summary>
+<image src="../../images/write.png" class="cu-avatar xl round fix" bindtap="gotoWrite"></image>

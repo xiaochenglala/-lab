@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "Menu": "/Components/home/home"
+  }
+}

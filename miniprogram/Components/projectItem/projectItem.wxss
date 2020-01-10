@@ -1,0 +1,52 @@
+.card{
+  background-color: white;
+  margin: 20rpx 30rpx;
+  border-radius: 15rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.icon{
+  width: 10%;
+  position: relative;
+}
+
+.icon text{
+  position: absolute;
+  top: 45%;
+  left: 30%;
+}
+
+.about{
+  display: flex;
+  justify-content: space-between;
+}
+
+.title{
+  font-size: 50rpx;
+  font-weight: bold;
+  color:  RoyalBlue;
+  margin: 20rpx 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.teacher{
+  margin: 20rpx 20rpx;
+}
+
+.teacher text{
+  font-size: 30rpx;
+  font-weight: bold
+}
+
+.scanNum{
+  margin: 20rpx 20rpx;
+  color: gray
+}
