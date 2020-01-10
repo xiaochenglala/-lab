@@ -637,7 +637,6 @@ radio.white[checked] .wx-radio-input {
 .shadow-warp:before,
 .shadow-warp:after {
 	position: absolute;
-	content: "";
 	top: 20rpx;
 	bottom: 30rpx;
 	left: 20rpx;

@@ -4,8 +4,9 @@
       {{item}}
     </view>
   </view>
-  <Item wx:for="{{projectList}}" 
+  <Item wx:for="{{projectList}}" wx:key="{{index}}" 
         name="{{item.name}}" 
         teacher="{{item.teacher}}"
-        scan="{{item.scan}}" bindtap="gotoDetail" data-id="{{item._id}}"></Item>
+        scan="{{item.scan}}" 
+        bindtap="gotoDetail" data-id="{{item._id}}" data-scan="{{item.scan}}" data-index="{{index}}"></Item>
 </scroll-view>

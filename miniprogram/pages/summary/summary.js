@@ -27,6 +27,9 @@ Page({
   //跳转到周结内容回复页面
   gotoResponse:function(e){
     console.log(e.currentTarget.dataset.id)
+    mycloud.addScan(e.currentTarget.dataset.id,'summary',e.currentTarget.dataset.scan,res=>{
+      console.log(res)
+    })
     wx.navigateTo({
       url: `../summaryDetail/summaryDetail?summaryId=${e.currentTarget.dataset.id}`,
     })
@@ -44,7 +47,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id)
-    this.setData({projectId:options.id,start:0},this.getSummaryList)
+    this.setData({projectId:options.id})
   },
 
   /**
@@ -58,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({start:0,summaryList:[]},this.getSummaryList)
   },
 
   /**

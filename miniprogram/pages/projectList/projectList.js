@@ -49,6 +49,14 @@ Page({
   //跳转到详情页
   gotoDetail: function (e) {
     console.log(e)
+    //addScan
+    var index = e.currentTarget.dataset.index
+    var scan = "projectList["+index+"].scan"
+    mycloud.addScan(e.currentTarget.dataset.id,'projectList',e.currentTarget.dataset.scan,res=>{
+      // console.log(res)
+      this.setData({[scan]:e.currentTarget.dataset.scan+1})
+    })
+    //navigate
     wx.navigateTo({
       url: `../projectDetail/projectDetail?id=${e.currentTarget.dataset.id}&type=${this.data.TabCur}`
     })

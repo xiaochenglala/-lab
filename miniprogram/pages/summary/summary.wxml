@@ -6,5 +6,5 @@
          imgList="{{item.imgList}}"
          scan="{{item.scan}}"
          answer="{{item.answer}}"
-         bindtap="gotoResponse" data-id="{{item._id}}"></Summary>
+         bindtap="gotoResponse" data-id="{{item._id}}" data-scan="{{item.scan}}"></Summary>
 <image src="../../images/write.png" class="cu-avatar xl round fix" bindtap="gotoWrite"></image>
