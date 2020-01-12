@@ -43,13 +43,20 @@ Page({
         mask:true
       })
       console.log('submit')
+      var page = getCurrentPages()
+      var beforePage = page[page.length-2]
       mycloud.pushSummary(this.data.projectId,this.data.openid,this.data.content,this.data.userInfo,this.data.imgList,res=>{
         console.log(res)
         wx.hideLoading()
         wx.showToast({
           title: '提交成功',
+          mask:true,
+          success:()=>{
+            beforePage.setData({start:0,summaryList:[]})
+          }
         })
-        setTimeout(wx.navigateBack,1000)
+        setTimeout(beforePage.getSummaryList,1600)
+        setTimeout(wx.navigateBack,1500)
       })
     }
   },

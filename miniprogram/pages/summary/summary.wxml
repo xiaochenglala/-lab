@@ -1,4 +1,4 @@
-<Summary wx:for="{{summaryList}}"
+<Summary wx:for="{{summaryList}}" wx:key="{{index}}"
          name="{{item.name}}"
          avatarUrl="{{item.avatarUrl}}"
          createTime="{{item.createTime}}"
@@ -6,5 +6,6 @@
          imgList="{{item.imgList}}"
          scan="{{item.scan}}"
          answer="{{item.answer}}"
-         bindtap="gotoResponse" data-id="{{item._id}}" data-scan="{{item.scan}}"></Summary>
+         bindtap="gotoResponse" 
+         data-id="{{item._id}}" data-scan="{{item.scan}}" data-index="{{index}}"></Summary>
 <image src="../../images/write.png" class="cu-avatar xl round fix" bindtap="gotoWrite"></image>

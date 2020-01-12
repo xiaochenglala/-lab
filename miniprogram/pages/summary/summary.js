@@ -26,9 +26,11 @@ Page({
 
   //跳转到周结内容回复页面
   gotoResponse:function(e){
-    console.log(e.currentTarget.dataset.id)
+    var index = e.currentTarget.dataset.index
+    var scan = "summaryList["+index+"].scan"
     mycloud.addScan(e.currentTarget.dataset.id,'summary',e.currentTarget.dataset.scan,res=>{
       console.log(res)
+      this.setData({[scan]:e.currentTarget.dataset.scan+1})
     })
     wx.navigateTo({
       url: `../summaryDetail/summaryDetail?summaryId=${e.currentTarget.dataset.id}`,
@@ -47,7 +49,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id)
-    this.setData({projectId:options.id})
+    this.setData({projectId:options.id,start:0,summaryList:[]},this.getSummaryList)
   },
 
   /**
@@ -61,7 +63,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({start:0,summaryList:[]},this.getSummaryList)
+
   },
 
   /**
@@ -89,7 +91,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.setData({start:this.summaryList.length})
+    this.setData({start:this.data.summaryList.length})
     this.getSummaryList()
   },
 

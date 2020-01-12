@@ -12,7 +12,9 @@ module.exports = {
   pushSummary: pushSummary, //提交周结
   getSummary: getSummary,    //获取周结列表
   getSummaryDetail: getSummaryDetail,   //获取周结详情
-  addScan:addScan,   //浏览人数加一
+  addScan: addScan,   //浏览人数加一
+  getMyProjectList: getMyProjectList,   //获取我报名或者我参加的表单
+  
 }
 
 // start为起始位置，limit为获取项目数，type为项目类型(0招收中,1进行中,2已完成)
@@ -152,4 +154,9 @@ function addScan(id,collectionName,scan,handle){
       handle(res)
     }
   })
+}
+
+//
+function getMyProjectList(openid,){
+
 }
