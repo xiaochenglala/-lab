@@ -32,7 +32,7 @@ Page({
       title: '加载中'
     })
     var handle= res=>{
-      console.log(res.data)
+      console.log(res)
       if(res.data.length!=0)
       {
         this.setData({
@@ -74,11 +74,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.flag)
     wx.getStorage({
       key: 'openid',
       success:res =>{
-        console.log(111)
         console.log(res)
         this.setData({openid:res.data})
       }

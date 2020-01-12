@@ -173,8 +173,24 @@ function getTeacherProjectList(openid,start, limit, type,handle){
 
 // openid为学生的id，start为起始位置，limit为获取项目数，type为项目类型(0招收中,1进行中,2已完成)
 function getStudentProjectList(openid,start, limit, type, handle) {
-  form.where({_openid:openid}).orderByskip.orderBy('initTime', 'desc').skip(start).limit(limit).get()
+  form.where({_openid:openid}).orderBy('initTime', 'desc').skip(start).limit(limit).get()
   .then(res=>{
-    console.log(res)
+    var promiseArr = []
+    var data = []
+    for(let i=0;i<res.data.length;i++)
+    {
+      promiseArr.push(new Promise((resolve,reject)=>{
+        projectList.where({_id:res.data[i].projectId,type:type}).get().then(res1=>{
+          // console.log(res1)
+          if(res1.data.length==1)
+            data.push(res1.data[0])
+          resolve()
+        })
+      }))
+    }
+    Promise.all(promiseArr).then(()=>{
+      // console.log(data)
+      handle({data})
+    })
   })
 }
