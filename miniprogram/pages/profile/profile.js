@@ -14,17 +14,20 @@ Page({
       {
         title: '管理项目',
         icon: 'list',
-        link: 'projectList'
+        link: 'projectList',
+        param: '?flag=1'  //老师权限
       },
       {
         title: '发布项目',
         icon: 'roundadd',
-        link: 'addProject'
+        link: 'addProject',
+        param:''
       },
       {
         title: '关于信工lab',
         icon: 'question',
-        link: ''
+        link: '',
+        param:''
       }
     ],
     //游客--学生
@@ -32,17 +35,20 @@ Page({
       {
         title:'我的项目',
         icon: 'list',
-        link: 'projectList'
+        link: 'projectList',
+        param: '?flag=2' //学生权限
       },
       {
         title: '我的小结',
         icon: 'text',
-        link: 'summary'
+        link: 'summary',
+        param:''
       },
       {
         title: '关于信工lab',
         icon: 'question',
-        link: ''
+        link: '',
+        param:''
       }
     ],
 
@@ -67,7 +73,9 @@ Page({
   goto: function (e) {
     console.log("---------profile.js---goto---------")
     console.log(e.currentTarget.dataset.link)
+    console.log(e)
     var link = e.currentTarget.dataset.link
+    var param = e.currentTarget.dataset.param
     if (link == '')
       wx.showToast({
         title: '暂未开放',
@@ -76,7 +84,7 @@ Page({
       })
     else
       wx.navigateTo({
-        url: `../${link}/${link}`,
+        url: `../${link}/${link}${param}`,
       })
   },
 

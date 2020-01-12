@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    flag:-1,  //判别权限标志
     projectId:'',
     type:-1,
     Detail:null
@@ -20,7 +21,7 @@ Page({
 
   gotoSummary: function () {
     wx.navigateTo({
-      url: `../summary/summary?id=${this.data.projectId}`,
+      url: `../summary/summary?id=${this.data.projectId}&flag=${this.data.flag}`,
     })
   },
 
@@ -47,7 +48,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    this.setData({projectId:options.id,type:options.type},() => {this.getProjectDetail()})
+    this.setData({projectId:options.id,type:options.type,flag:options.flag},() => {this.getProjectDetail()})
   },
 
   /**

@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    flag:-1,  //判别权限标志
+    openid:'',
     type: ["招收中", "进行中", "已完成"],
     TabCur: 0,
     scrollLeft: 0,
@@ -29,7 +31,7 @@ Page({
     wx.showLoading({
       title: '加载中'
     })
-    mycloud.getProjectList(this.data.start, 10, this.data.TabCur, res => {
+    var handle= res=>{
       console.log(res.data)
       if(res.data.length!=0)
       {
@@ -43,7 +45,11 @@ Page({
         wx.hideLoading()
         wx.showToast({title:'已经到底了'})
       }
-    })
+    }
+    if(this.data.flag==0) //游客权限
+      mycloud.getProjectList(this.data.start, 10, this.data.TabCur, handle)
+    else if(this.data.flag==1)  //老师权限
+      mycloud.getTeacherProjectList(this.data.openid,this.data.start, 10, this.data.TabCur,handle)
   },
 
   //跳转到详情页
@@ -58,7 +64,7 @@ Page({
     })
     //navigate
     wx.navigateTo({
-      url: `../projectDetail/projectDetail?id=${e.currentTarget.dataset.id}&type=${this.data.TabCur}`
+      url: `../projectDetail/projectDetail?id=${e.currentTarget.dataset.id}&type=${this.data.TabCur}&flag=${this.data.flag}`
     })
   },
 
@@ -66,8 +72,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({start:0})
-    this.getProjectList()
+    console.log(options.flag)
+    wx.getStorage({
+      key: 'openid',
+      success:res =>{
+        console.log(111)
+        console.log(res)
+        this.setData({openid:res.data})
+      }
+    })
+    this.setData({start:0,flag:options.flag},this.getProjectList)
+    
   },
 
   /**

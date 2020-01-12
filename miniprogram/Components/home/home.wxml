@@ -1,5 +1,5 @@
 <view class='nav-list'>
-  <view class="nav-li bg-{{item.color}}" bindtap="goto" data-link="{{item.link}}" wx:for="{{elements}}" wx:key>
+  <view class="nav-li bg-{{item.color}}" bindtap="goto" data-param="{{item.param}}" data-link="{{item.link}}" wx:for="{{elements}}" wx:key>
     <view class="nav-title">{{item.title}}</view>
     <view class="nav-name">{{item.name}}</view>
     <text class='cuIcon-{{item.icon}}'></text>

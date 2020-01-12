@@ -9,7 +9,7 @@
 
 <!-- 老师版 -->
 <view wx:elif="{{isTeacher}}" class="cu-list menu sm-border card-menu margin-top">
-  <view class="cu-item arrow" wx:for="{{admin}}" data-link="{{item.link}}" bindtap="goto">
+  <view class="cu-item arrow" wx:for="{{admin}}" data-param="{{item.param}}" data-link="{{item.link}}" bindtap="goto">
     <view class="content">
       <text class="cuIcon-{{item.icon}} text-grey"></text>
       <text class="text-grey">{{item.title}}</text>
@@ -19,7 +19,7 @@
 
 <!-- 游客版 -->
 <view wx:else class="cu-list menu sm-border card-menu margin-top">
-  <view class="cu-item arrow" wx:for="{{visitor}}" data-link="{{item.link}}" bindtap="goto">
+  <view class="cu-item arrow" wx:for="{{visitor}}" data-param="{{item.param}}" data-link="{{item.link}}" bindtap="goto">
     <view class="content">
       <text class="cuIcon-{{item.icon}} text-grey"></text>
       <text class="text-grey">{{item.title}}</text>

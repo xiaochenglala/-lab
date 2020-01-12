@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    flag:0,
     projectId:'',
     start:0,
     summaryList:[]
@@ -49,7 +50,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id)
-    this.setData({projectId:options.id,start:0,summaryList:[]},this.getSummaryList)
+    this.setData({projectId:options.id,start:0,summaryList:[],flag:options.flag},this.getSummaryList)
   },
 
   /**

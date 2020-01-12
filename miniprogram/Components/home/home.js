@@ -9,28 +9,32 @@ Component({
         name: 'project',
         color: 'blue',
         icon: 'list',
-        link: 'projectList'
+        link: 'projectList',
+        param: '?flag=0' //游客权限
       },
       {
         title: '学习空间',
         name: 'study',
         color: 'purple',
         icon: 'home',
-        link: ''
+        link: '',
+        param:''
       },
       {
         title: '视频展示 ',
         name: 'video',
         color: 'mauve',
         icon: 'video',
-        link: ''
+        link: '',
+        param:''
       },
       {
         title: '交流社区',
         name: 'community',
         color: 'pink',
         icon: 'comment',
-        link: ''
+        link: '',
+        param:''
       },
     ],
   },
@@ -39,6 +43,7 @@ Component({
     goto: function(e){
       console.log(e.currentTarget.dataset.link)
       var link = e.currentTarget.dataset.link
+      var param = e.currentTarget.dataset.param
       if(link == '')
         wx.showToast({
           title: '暂未开放',
@@ -47,7 +52,7 @@ Component({
         })
       else
         wx.navigateTo({
-          url: `../${link}/${link}`,
+          url: `../${link}/${link}${param}`,
         })
     }
   }

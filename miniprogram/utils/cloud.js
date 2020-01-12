@@ -13,7 +13,7 @@ module.exports = {
   getSummary: getSummary,    //获取周结列表
   getSummaryDetail: getSummaryDetail,   //获取周结详情
   addScan: addScan,   //浏览人数加一
-  getMyProjectList: getMyProjectList,   //获取我报名或者我参加的表单
+  getTeacherProjectList: getTeacherProjectList,   //获取老师参与的项目列表
   
 }
 
@@ -156,7 +156,14 @@ function addScan(id,collectionName,scan,handle){
   })
 }
 
-//
-function getMyProjectList(openid,){
-
+// openid为老师的id
+function getTeacherProjectList(openid,start, limit, type,handle){
+  projectList.where({
+    _openid:openid,
+    type: type
+  }).orderBy('initTime', 'desc').skip(start).limit(limit).get({
+    success: res => {
+      handle(res)
+    }
+  })
 }
