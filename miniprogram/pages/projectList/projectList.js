@@ -50,6 +50,8 @@ Page({
       mycloud.getProjectList(this.data.start, 10, this.data.TabCur, handle)
     else if(this.data.flag==1)  //老师权限
       mycloud.getTeacherProjectList(this.data.openid,this.data.start, 10, this.data.TabCur,handle)
+    else if(this.data.flag==2)  //学生权限
+      mycloud.getStudentProjectList(this.data.openid,this.data.start, 10, this.data.TabCur,handle)
   },
 
   //跳转到详情页

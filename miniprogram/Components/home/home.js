@@ -5,7 +5,7 @@ Component({
   data: {
     elements: [
       {
-        title: '项目报名',
+        title: '项目列表',
         name: 'project',
         color: 'blue',
         icon: 'list',

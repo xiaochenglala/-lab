@@ -62,5 +62,6 @@
     <view class="cu-item" style="text-indent:100rpx;">电子信息工程： 朱浩文</view>
   </scroll-view> -->
 <!-- </view> -->
-<button wx:if="{{type==0}}" bindtap="gotoSignUp" class="flex cu-btn lg bg-blue" id="sign-up">我要报名</button>
-<button wx:else bindtap="gotoSummary" class="flex cu-btn lg bg-blue" id="sign-up">查看周结</button>
+<button wx:if="{{type==0 && flag==0}}" bindtap="gotoSignUp" class="flex cu-btn lg bg-blue" id="sign-up">我要报名</button>
+<button wx:elif="{{type!=2 && flag==1}}" bindtap="gotoManage" class="flex cu-btn lg bg-blue" id="sign-up">成员管理</button>
+<button wx:if="{{type!=0}}" bindtap="gotoSummary" class="flex cu-btn lg bg-blue" id="sign-up">查看周结</button>

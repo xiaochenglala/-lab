@@ -14,6 +14,7 @@ module.exports = {
   getSummaryDetail: getSummaryDetail,   //获取周结详情
   addScan: addScan,   //浏览人数加一
   getTeacherProjectList: getTeacherProjectList,   //获取老师参与的项目列表
+  getStudentProjectList: getStudentProjectList, //获取学生参与的项目列表
   
 }
 
@@ -39,10 +40,12 @@ function getprojectDetail(projectId, handle) {
 
 // projectId为项目对应_id,resume为简历
 function submitResume(projectId, resume, handle) {
+  var initTime = new Date().getTime()
   form.add({
     data: {
       resume: resume,
-      projectId: projectId
+      projectId: projectId,
+      initTime:initTime
     },
     success: res => {
       handle(res)
@@ -156,7 +159,7 @@ function addScan(id,collectionName,scan,handle){
   })
 }
 
-// openid为老师的id
+// openid为老师的id，start为起始位置，limit为获取项目数，type为项目类型(0招收中,1进行中,2已完成)
 function getTeacherProjectList(openid,start, limit, type,handle){
   projectList.where({
     _openid:openid,
@@ -165,5 +168,13 @@ function getTeacherProjectList(openid,start, limit, type,handle){
     success: res => {
       handle(res)
     }
+  })
+}
+
+// openid为学生的id，start为起始位置，limit为获取项目数，type为项目类型(0招收中,1进行中,2已完成)
+function getStudentProjectList(openid,start, limit, type, handle) {
+  form.where({_openid:openid}).orderByskip.orderBy('initTime', 'desc').skip(start).limit(limit).get()
+  .then(res=>{
+    console.log(res)
   })
 }

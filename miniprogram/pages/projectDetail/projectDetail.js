@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    flag:-1,  //判别权限标志
+    flag:0,  //判别权限标志
     projectId:'',
     type:-1,
     Detail:null
