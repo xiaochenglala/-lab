@@ -1,0 +1,26 @@
+<view class="cu-form-group margin-top">
+	<view class="title">姓名</view>
+	<input value="{{resume.name}}" disabled></input>
+</view>
+<view class="cu-form-group">
+	<view class="title">班级</view>
+	<input value="{{resume.class}}" disabled></input>
+</view>
+<view class="cu-form-group">
+	<view class="title">学号</view>
+	<input value="{{resume.number}}" disabled></input>
+</view>
+<view class="cu-form-group">
+	<view class="title">微信号</view>
+	<input value="{{resume.wechat}}" disabled></input>
+</view>
+<view class="cu-form-group align-start" style="height:500rpx;">
+	<view class="title">自我介绍</view>
+	<textarea value="{{resume.introduction}}" style="height:80%;font-size:30rpx;" maxlength="-1"></textarea>
+</view>
+
+<button form-type="submit" class="cu-btn flex bg-red shadow margin-top">删除该成员</button>
+<view class="btn margin-top flex">
+  <button bindtap="Submit" class="cu-btn bg-blue" style="margin:10rpx;">通过</button>
+  <button bindtap="Clear" class="cu-btn bg-red" style="margin:10rpx;">退回</button>
+</view>

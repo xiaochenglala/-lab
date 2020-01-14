@@ -1,0 +1,11 @@
+<view wx:if="{{fromList==[]}}" style="text-align:center;color:white;margin:30rpx;">
+  还没有项目成员哦
+</view>
+
+<Member wx:for="{{formList}}"
+        name="{{item.resume.name}}"
+        number="{{item.resume.number}}"
+        data-id="{{item._id}}"
+        bindtap="gotoResume"></Member>
+
+<button form-type="submit" class="cu-btn flex bg-blue shadow margin-top">开始项目</button>

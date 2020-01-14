@@ -19,6 +19,12 @@ Page({
     })
   },
 
+  gotoManage:function(){
+    wx.navigateTo({
+      url: `../memberManage/memberManage?id=${this.data.projectId}`,
+    })
+  },
+
   gotoSummary: function () {
     wx.navigateTo({
       url: `../summary/summary?id=${this.data.projectId}&flag=${this.data.flag}`,

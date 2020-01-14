@@ -74,9 +74,9 @@
 				},
 				{
 					"id": 3,
-					"name": "pages/summaryDeatil/summaryDetail",
-					"pathName": "pages/summaryDetail/summaryDetail",
-					"query": "",
+					"name": "pages/memberManage/memberManage",
+					"pathName": "pages/memberManage/memberManage",
+					"query": "id=74b140b45e181936005e84773933efd7",
 					"scene": null
 				},
 				{

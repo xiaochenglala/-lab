@@ -15,6 +15,8 @@ module.exports = {
   addScan: addScan,   //浏览人数加一
   getTeacherProjectList: getTeacherProjectList,   //获取老师参与的项目列表
   getStudentProjectList: getStudentProjectList, //获取学生参与的项目列表
+  getFormList:getFormList,  //获取简历列表
+  getForm: getForm,   //获取简历表单
   
 }
 
@@ -193,4 +195,18 @@ function getStudentProjectList(openid,start, limit, type, handle) {
       handle({data})
     })
   })
+}
+
+// projectId为项目id
+function getFormList(projectId,start, limit,handle){
+  form.where({projectId:projectId}).orderBy('initTime','desc').skip(start).limit(limit).get()
+  .then(res=>{
+    handle(res)
+  })
+}
+
+// id为form表单记录的id
+function getForm(id,handle){
+  form.doc(id).get()
+  .then(res=>{handle(res)})
 }

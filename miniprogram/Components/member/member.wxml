@@ -1,0 +1,8 @@
+  <view class="cu-card article isCard">
+    <view class="card">
+      <view class="info">
+        <view class="title">{{name}}-{{number}}</view>
+      </view>
+      <view class="icon"><text class="cuIcon-right text-gray"></text></view>
+    </view>
+  </view>

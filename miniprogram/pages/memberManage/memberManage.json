@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "Member":"/Components/member/member"
+  }
+}
