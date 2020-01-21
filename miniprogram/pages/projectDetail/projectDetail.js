@@ -21,7 +21,7 @@ Page({
 
   gotoManage:function(){
     wx.navigateTo({
-      url: `../memberManage/memberManage?id=${this.data.projectId}`,
+      url: `../memberManage/memberManage?id=${this.data.projectId}&type=${this.data.type}`,
     })
   },
 

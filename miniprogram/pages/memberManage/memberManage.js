@@ -7,6 +7,7 @@ Page({
    */
   data: {
     projectId:'',
+    type:-1,
     formList:[],
     start:0
   },
@@ -28,7 +29,20 @@ Page({
     // console.log(e)
     var formId = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: `../resume/resume?formId=${formId}`,
+      url: `../resume/resume?formId=${formId}&type=${this.data.type}`,
+    })
+  },
+
+  setType(e){
+    console.log(e.currentTarget.dataset.type)
+    mycloud.setProjectType(this.data.projectId,e.currentTarget.dataset.type,res=>{
+      // console.log(res)
+      wx.showToast({
+        title: '操作成功',
+      })
+      setTimeout(()=>{wx.navigateBack({
+        delta: 3,
+      })},1000)
     })
   },
 
@@ -36,7 +50,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({projectId:options.id,start:0},this.getFormList)
+    this.setData({projectId:options.id,type:options.type,start:0},this.getFormList)
   },
 
   /**

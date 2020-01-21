@@ -29,7 +29,8 @@ Page({
   // 项目列表获取
   getProjectList() {
     wx.showLoading({
-      title: '加载中'
+      title: '加载中',
+      mask:true
     })
     var handle= res=>{
       console.log(res)

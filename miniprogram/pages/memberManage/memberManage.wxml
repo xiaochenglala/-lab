@@ -8,4 +8,6 @@
         data-id="{{item._id}}"
         bindtap="gotoResume"></Member>
 
-<button form-type="submit" class="cu-btn flex bg-blue shadow margin-top">开始项目</button>
+<button wx:if="{{type==0}}" bindtap="setType" data-type="{{1}}" class="cu-btn flex bg-blue shadow margin-top">开始项目</button>
+<button wx:if="{{type==1}}" bindtap="setType" data-type="{{0}}" class="cu-btn flex bg-blue shadow margin-top">置为招收状态</button>
+<button wx:if="{{type==1}}" bindtap="setType" data-type="{{2}}" class="cu-btn flex bg-blue shadow margin-top">结束项目</button>

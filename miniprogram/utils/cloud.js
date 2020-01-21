@@ -17,6 +17,7 @@ module.exports = {
   getStudentProjectList: getStudentProjectList, //获取学生参与的项目列表
   getFormList:getFormList,  //获取简历列表
   getForm: getForm,   //获取简历表单
+  setProjectType: setProjectType,   //设置项目状态
   
 }
 
@@ -210,3 +211,14 @@ function getForm(id,handle){
   form.doc(id).get()
   .then(res=>{handle(res)})
 }
+
+// projectId为项目的id,setType为要置的状态  //0为报名中，1为进行中，2为完成
+function setProjectType(projectId,setType,handle){
+  projectList.doc(projectId).update({
+    data:{
+      type:setType
+    }
+  })
+  .then(res =>{handle(res)})
+}
+
