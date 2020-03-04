@@ -34,6 +34,7 @@ App({
         .then(res => {
           console.log("----------------app.js-获取用户登录信息-------------")
           console.log(res.result)
+          this.globalData.openid = res.result.openid
           //在本地存储存储用户openid
           wx.setStorage({
             key: "openid",
@@ -64,14 +65,19 @@ App({
    * 当小程序启动，或从后台进入前台显示，会触发 onShow
    */
   onShow: function (options) {
-    
+    var mycloud = require("./utils/cloud")
+    this.globalData.timer = setInterval(()=>{
+      console.log('正在查询是否有新消息')
+      mycloud.hasNewMessage(this.globalData.openid)
+    },5000)
   },
 
   /**
    * 当小程序从前台进入后台，会触发 onHide
    */
   onHide: function () {
-    
+    console.log('进入后台')
+    clearInterval(this.globalData.timer)
   },
 
   /**

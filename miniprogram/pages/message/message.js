@@ -41,7 +41,7 @@ Page({
       key: 'openid',
       success:res=>{
         // console.log(res)
-        this.setData({start:0,openid:res.data},this.getMessage)
+        this.setData({openid:res.data})
       }
     })
   },
@@ -57,7 +57,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({start:0,msgList:[]},this.getMessage)
   },
 
   /**

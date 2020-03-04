@@ -11,6 +11,7 @@ module.exports = {
   submitResume: submitResume, //报名简历提交
   getTeacher: getTeacher, //获取老师信息
   addProject: addProject, //创建项目
+
   pushSummary: pushSummary, //提交周结
   getSummary: getSummary, //获取周结列表
   getSummaryDetail: getSummaryDetail, //获取周结详情
@@ -18,15 +19,19 @@ module.exports = {
   getReply: getReply, //获取回复
   addScan: addScan, //浏览人数加一
   addReply: addReply, //回复人数加一
+
   getTeacherProjectList: getTeacherProjectList, //获取老师参与的项目列表
   getStudentProjectList: getStudentProjectList, //获取学生参与的项目列表
   getFormList: getFormList, //获取简历列表
   getForm: getForm, //获取简历表单
   setProjectType: setProjectType, //设置项目状态
   getMySummary: getMySummary, //获取个人周结列表
+
   createMessage:createMessage,  //生成消息
   hasNewMessage: hasNewMessage,  //确认是否有新消息
+  deleteMessage: deleteMessage,  //删除消息---没写
   getMessage: getMessage,  //获取消息
+
   deleteMember: deleteMember,   //删除成员
   agreeMember:agreeMember,  //同意成员加入项目
 }
@@ -339,18 +344,31 @@ function createMessage(send_name,recv_id,type,handle){
 } 
 
 //  recv_id为接收人id
-function hasNewMessage(recv_id,handle){
+function hasNewMessage(recv_id){
   message.where({
     recv_id:recv_id,
     is_read:0,
   }).get()
-  // .then(res=>{
-  //   message.where({is_read:0}).update({
-  //     data:{
-  //       is_read:1
-  //     }
-  //   })
-  // })
+  .then(res=>{
+    if(res.data.length!=0)
+    {
+      wx.showToast({
+        title: '你有新消息',
+        icon:'none'
+      })
+    wx.cloud.callFunction({
+      name:'operateMessage',
+      data:{
+        operate:'update'
+      }
+    })
+    }
+  })
+}
+
+//删除信息
+function deleteMessage(){
+  console.log('等待写')
 }
 
 //recv_id为接收id，start为开始处,limit为限制条数
