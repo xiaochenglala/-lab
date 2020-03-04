@@ -69,7 +69,7 @@ App({
     this.globalData.timer = setInterval(()=>{
       console.log('正在查询是否有新消息')
       mycloud.hasNewMessage(this.globalData.openid)
-    },5000)
+    },10000)
   },
 
   /**

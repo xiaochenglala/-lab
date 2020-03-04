@@ -1,5 +1,6 @@
 // pages/summaryDeatil/summaryDetail.js
 var mycloud = require("../../utils/cloud")
+const app = getApp()
 Page({
 
   /**
@@ -75,13 +76,21 @@ Page({
       newList.push(reply)
       this.setData({replyList:newList,myReply:''})
       //发消息到云端
-      mycloud.createMessage(this.data.userInfo.nickName,this.data.summary._openid,2,()=>{
+      if(this.data.summary._openid!=app.globalData.openid)
+        mycloud.createMessage(this.data.userInfo.nickName,this.data.summary._openid,2,()=>{
+          wx.hideLoading()
+          wx.showToast({
+            title: '评论成功',
+            mask:true
+          })
+        })
+      else{
         wx.hideLoading()
         wx.showToast({
-          title: '回复成功',
+          title: '评论成功',
           mask:true
         })
-      })
+      }
     })
   },
 
