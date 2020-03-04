@@ -8,4 +8,4 @@
          answer="{{item.answer}}"
          bindtap="gotoResponse" 
          data-id="{{item._id}}" data-scan="{{item.scan}}" data-index="{{index}}"></Summary>
-<image wx:if="{{flag!=0}}" src="../../images/write.png" class="cu-avatar xl round fix" bindtap="gotoWrite"></image>
+<image wx:if="{{flag == 1 || flag == 2}}" src="../../images/write.png" class="cu-avatar xl round fix" bindtap="gotoWrite"></image>

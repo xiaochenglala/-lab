@@ -28,8 +28,11 @@ Page({
   gotoResume:function(e){
     // console.log(e)
     var formId = e.currentTarget.dataset.id
+    var index = e.currentTarget.dataset.index
+    var is_agree = e.currentTarget.dataset.is_agree
+    var stu_id = e.currentTarget.dataset.stu_id
     wx.navigateTo({
-      url: `../resume/resume?formId=${formId}&type=${this.data.type}`,
+      url: `../resume/resume?formId=${formId}&type=${this.data.type}&index=${index}&is_agree=${is_agree}&stu_id=${stu_id}`,
     })
   },
 

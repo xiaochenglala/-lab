@@ -1,8 +1,17 @@
-<Summary isCard="{{false}}"
-         name="{{summary.name}}"
-         avatarUrl="{{summary.avatarUrl}}"
-         createTime="{{summary.createTime}}"
-         content="{{summary.content}}"
-         imgList="{{summary.imgList}}"
-         scan="{{summary.scan}}"
-         answer="{{summary.answer}}"></Summary>
+<Summary isCard="{{false}}" name="{{summary.name}}" avatarUrl="{{summary.avatarUrl}}" createTime="{{summary.createTime}}" content="{{summary.content}}" imgList="{{summary.imgList}}" scan="{{summary.scan}}" answer="{{summary.answer}}"></Summary>
+
+
+<Reply wx:for="{{replyList}}" wx:key="{{index}}"
+			 name="{{item.name}}"
+			 avatarUrl="{{item.avatarUrl}}"
+			 content="{{item.content}}">
+</Reply>
+
+
+<view style="width:100%;height:100rpx;"></view>
+<view class="box">
+	<view class="cu-bar input foot">
+		<input class="solid-bottom" bindinput="writeReply" value="{{myReply}}" placeholder="说点什么吧" maxlength="300" cursor-spacing="10"></input>
+		<button class="cu-btn bg-green shadow-blur" style="width:20% !important" bindtap="pushReply">发布</button>
+	</view>
+</view>

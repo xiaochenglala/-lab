@@ -42,7 +42,7 @@ Page({
         title: '我的小结',
         icon: 'text',
         link: 'summary',
-        param:''
+        param:'?flag=4'//获取个人的
       },
       {
         title: '关于信工lab',

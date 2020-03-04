@@ -1,4 +1,4 @@
-// Components/member/member.js
+// Components/reply/reply.js
 Component({
   options: {
     addGlobalClass: true,
@@ -8,8 +8,8 @@ Component({
    */
   properties: {
     name:String,
-    number:String,
-    is_agree:Number
+    avatarUrl:String,
+    content:String,
   },
 
   /**

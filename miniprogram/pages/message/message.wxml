@@ -1,0 +1,5 @@
+<view class="cu-card article isCard" wx:for="{{msgList}}" wx:key="index">
+  <view class="card">
+    <view class="title">{{item.send_name}}{{type[item.type]}}</view>
+  </view>
+</view>

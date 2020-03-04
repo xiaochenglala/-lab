@@ -26,7 +26,7 @@
 .title{
   font-size: 50rpx;
   font-weight: bold;
-  color:  rgb(126, 93, 93);
+  /* color:  rgb(126, 93, 93); */
   margin: 30rpx 20rpx;
   padding-left: 70rpx;
   overflow: hidden;

@@ -6,51 +6,99 @@ Page({
    * 页面的初始数据
    */
   data: {
-    flag:0,
-    projectId:'',
-    start:0,
-    summaryList:[]
+    flag: 0,
+    openid:'',
+    projectId: '',
+    start: 0,
+    summaryList: []
   },
 
   //获取周结列表
-  getSummaryList(){
+  getSummaryList() {
     wx.showLoading({
       title: '加载中',
       mask: 'true'
     })
-    mycloud.getSummary(this.data.projectId,this.data.start,10,res=>{
+    mycloud.getSummary(this.data.projectId, this.data.start, 10, res => {
       console.log(res)
-      this.setData({summaryList:this.data.summaryList.concat(res.data)})
+      this.setData({
+        summaryList: this.data.summaryList.concat(res.data)
+      })
       wx.hideLoading()
     })
   },
 
   //跳转到周结内容回复页面
-  gotoResponse:function(e){
+  gotoResponse: function (e) {
     var index = e.currentTarget.dataset.index
-    var scan = "summaryList["+index+"].scan"
-    mycloud.addScan(e.currentTarget.dataset.id,'summary',e.currentTarget.dataset.scan,res=>{
-      console.log(res)
-      this.setData({[scan]:e.currentTarget.dataset.scan+1})
+    var scan = "summaryList[" + index + "].scan"
+    mycloud.addScan(e.currentTarget.dataset.id, 'summary', e.currentTarget.dataset.scan, res => {
+      // console.log(res)
+      this.setData({
+        [scan]: e.currentTarget.dataset.scan + 1
+      })
     })
     wx.navigateTo({
-      url: `../summaryDetail/summaryDetail?summaryId=${e.currentTarget.dataset.id}`,
+      url: `../summaryDetail/summaryDetail?summaryId=${e.currentTarget.dataset.id}&index=${index}`,
     })
   },
 
   //跳转到写周结页面
-  gotoWrite: function(){
+  gotoWrite: function () {
     wx.navigateTo({
       url: `../writeSummary/writeSummary?id=${this.data.projectId}`,
     })
+  },
+  //获取个人周结列表
+  getMySummaryList() {
+    wx.showLoading({
+      title: '加载中',
+      mask: 'true'
+    })
+    mycloud.getMySummary(this.data.openid,this.data.start,10,res => {
+      console.log(res)
+      if (res.data.length != 0) {
+        this.setData({
+          summaryList: this.data.summaryList.concat(res.data)
+        })
+        wx.hideLoading()
+      } else {
+        wx.hideLoading()
+        wx.showToast({
+          title: '已经到底了'
+        })
+      }
+    })
+  },
+
+  //判断进入哪个周结列表函数
+  getWhichSummary() {
+    if (this.data.flag != 4) {
+      this.getSummaryList()
+      console.log(666)
+    } else {
+      this.getMySummaryList()
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id)
-    this.setData({projectId:options.id,start:0,summaryList:[],flag:options.flag},this.getSummaryList)
+    console.log(options)
+    wx.getStorage({
+      key: 'openid',
+      success:res =>{
+        // console.log(res)
+        this.setData({
+          openid:res.data,
+          projectId: options.id,
+          start: 0,
+          summaryList: [],
+          flag: options.flag
+        }, this.getWhichSummary)
+      }
+    })
   },
 
   /**
@@ -92,8 +140,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.setData({start:this.data.summaryList.length})
-    this.getSummaryList()
+    this.setData({
+      start: this.data.summaryList.length
+    })
+    this.getWhichSummary()
   },
 
   /**

@@ -1,0 +1,17 @@
+<view class="cu-list menu-avatar comment solids-top">
+	<view class="cu-item">
+		<view class="cu-avatar round" style="background-image:url('{{avatarUrl}}');"></view>
+		<view class="content">
+			<view class="text-grey">{{name}}</view>
+			<view class="text-gray text-content text-df">
+				{{content}}
+			</view>
+			<!-- <view class="bg-grey padding-sm radius margin-top-sm  text-sm">
+				<view class="flex">
+					<view>凯尔：</view>
+					<view class="flex-sub">妹妹，你在帮他们给黑暗找借口吗?</view>
+				</view>
+			</view> -->
+		</view>
+	</view>
+</view>

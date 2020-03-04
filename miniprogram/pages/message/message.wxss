@@ -1,0 +1,18 @@
+.card{
+  background-color: white;
+  margin: 20rpx 30rpx;
+  border-radius: 15rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.title{
+  font-size: 35rpx;
+  font-weight: bold;
+  color:  black;
+  margin: 40rpx 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

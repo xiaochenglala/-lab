@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "Summary": "/Components/comment/comment"
+    "Summary": "/Components/comment/comment",
+    "Reply": "/Components/reply/reply"
   }
 }

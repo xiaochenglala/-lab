@@ -2,10 +2,14 @@
   还没有项目成员哦
 </view>
 
-<Member wx:for="{{formList}}"
+<Member wx:for="{{formList}}" wx:key="index"
         name="{{item.resume.name}}"
         number="{{item.resume.number}}"
         data-id="{{item._id}}"
+        data-index="{{index}}"
+        data-is_agree="{{item.is_agree}}"
+        data-stu_id="{{item._openid}}"
+        is_agree="{{item.is_agree}}"
         bindtap="gotoResume"></Member>
 
 <button wx:if="{{type==0}}" bindtap="setType" data-type="{{1}}" class="cu-btn flex bg-blue shadow margin-top">开始项目</button>
